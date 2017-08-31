@@ -7,6 +7,8 @@ Explicitly logging in via the API is only needed if you are using the
 :ref:`Session Token & Cookie <session-token-cookie>` method to communicate with
 the API.
 
+::
+
     import requests
     session = requests.Session()
     login_url = "https://docs.packetfabric.com/login"
@@ -22,6 +24,8 @@ your requests, as long as you use ``session`` instead of ``requests``
 As an example, the following block will query the
 `/customer <https://docs.packetfabric.com/#api-Customer-GetCustomer>`__ end point
 and the data will be accessible in ``r.json()`` at the completion of the request
+
+::
 
     r = session.get('https://api.packetfabric.com/customer')
 

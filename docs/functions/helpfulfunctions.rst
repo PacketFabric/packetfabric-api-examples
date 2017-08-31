@@ -1,2 +1,4 @@
+.. _functions-helpful:
+
 Functions
 =========

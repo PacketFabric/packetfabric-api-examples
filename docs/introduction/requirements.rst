@@ -28,8 +28,7 @@ API key and secret. You can do this via the portal.
  - Log into the `portal <https://portal.packetfabric.com>`__
  - Click "Admin Settings" along the top navigation bar
  - Click "API Keys" along the left navigation bar
- - In the "Select Users" box, find the user ID you'll be associating this
- key with and select it
+ - In the "Select Users" box, find the user ID you'll be associating this key with and select it
  - Press "Generate Key for user"
 
 The ``Key ID`` and ``Key Secret``, along with an expiration date, will be shown
