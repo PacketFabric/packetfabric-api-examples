@@ -322,8 +322,6 @@ Upon creation, a new port sits in ``Testing Mode``. To utilize the port, you nee
 activate it. First, you need to ensure that provisioning has completed successfully.
 Once it has, you can activate it::
 
-::
-
     ifd_id = 1388
 
     endpoint = '{}/interfaces/physical/:ifd_id/accept'.format(api_url)
@@ -334,7 +332,7 @@ Once it has, you can activate it::
         generate_hash(api_secret, query_string)))
 
 This returns details about the port you've just activated. It contains the same
-information that the API call to get information about a 
+information that the API call to get information about a
 `specific interface <https://docs.packetfabric.com/#api-Interface-GetInterfacePhysical>`__
 contains.
 
