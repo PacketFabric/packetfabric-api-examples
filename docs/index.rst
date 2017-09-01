@@ -36,7 +36,7 @@ end points. For the time being, these examples will be in Python.
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Examples
+   :caption: Contributing
 
    bugs
 

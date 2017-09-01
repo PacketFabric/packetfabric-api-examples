@@ -3,7 +3,7 @@
 Ordering a Backbone Virtual Circuit
 ==========================
 
-Much like :ref:`Ordering a port <example-orderport>`, ordering a Virtual Circuit
+Much like :ref:`ordering a port <example-orderport>`, ordering a Virtual Circuit
 is a series of API calls to gather all the information needed to complete the
 order.
 
@@ -58,7 +58,7 @@ The product you select is based on a couple factors, such as the subscription te
 and speed of the port.
 
 For this example, we are going to create a longhaul dedicated product. Other options
-are shown in the `Get Products <https://docs.packetfabric.com/#api-Billing-GetBillingProducts>`__
+are shown in the `get products <https://docs.packetfabric.com/#api-Billing-GetBillingProducts>`__
 documentation.
 
 ::
@@ -283,4 +283,4 @@ Finishing up
 
 Congratulations! You've now ordered and activated a dedicated longhaul backbone
 connection between two of your own ports. This entire process should take a couple
-seconds or less. 
+seconds or less.

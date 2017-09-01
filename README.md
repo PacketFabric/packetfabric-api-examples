@@ -1,6 +1,11 @@
-# PacketFabric REST API examples #
+<p align="center"><img src="logo.png?raw=true" alt="PacketFabric logo" height="25%" width="25%"></p>
 
-## Sending Requests ##
+Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/).
+
+## Quick Start
+
+The first thing you need to do to get started is connect to the API. You can accomplish
+this by either using session tokens and a cookie or by using an API key and authentication hash.
 
 ### Using a Session Token & Cookie ###
 
@@ -19,7 +24,11 @@ http://api.packetfabric.com/interfaces/physical?api_key=1-0123456789ABCDEF&auth_
 
 `auth_hash` is computed by taking the HMAC of your secret key and the query string using SHA256.
 
-#### Python ####
+## Generating the hash
+
+If you are using the API and hash method the functions below will help you generate the hash correctly.
+
+### Python ###
 
 ```
 import urllib
@@ -40,7 +49,7 @@ url = 'https://api.packetfabric.com/interfaces/physical?{}&auth_hash={}'.format(
 # https://api.packetfabric.com/interfaces/physical?api_key=1-0123456789ABCDEF&auth_hash=BmoewII%2FOUyIX%2BjMXhHxLAlTc6XRXLobVVJ9DWUPP3Y%3D
 ```
 
-#### PHP ####
+### PHP ###
 
 ```
 <?php
@@ -57,3 +66,7 @@ $url = "https://api.packetfabric.com/interfaces/physical?$query_string&auth_hash
 // https://api.packetfabric.com/interfaces/physical?api_key=1-0123456789ABCDEF&auth_hash=BmoewII%2FOUyIX%2BjMXhHxLAlTc6XRXLobVVJ9DWUPP3Y%3D
 ?>
 ```
+
+---
+
+Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/). 
