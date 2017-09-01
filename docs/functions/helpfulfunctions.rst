@@ -27,7 +27,7 @@ you create your :ref:`API Key <requirement-apikey>`.
         key_secret: The secret key associated with the API key you'll be passing in the `api_key` parameter
         query_string: A URL query string
 
-            Format: "param1=value1&param2=value2&api_key=API_KEY"
+            query_string format: "param1=value1&param2=value2&api_key=API_KEY"
 
             Note that this does not have the leading "?" and that the api_key is included
         """

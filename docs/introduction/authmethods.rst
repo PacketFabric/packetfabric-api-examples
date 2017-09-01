@@ -5,18 +5,18 @@ Authentication Methods
 
 Authenticating via the API can be accomplished in two different ways::
 
--  Using a Session Token & Cookie
--  Using an API Key & Hash
+ -  Using a Session Token & Cookie
+ -  Using an API Key & Hash
 
 .. _session-token-cookie:
 
 Session Token & Cookie
 ----------------------
 
-The session token and cookie is the method utilized by our own portal. (Yes, we
-use the API that you use.) This method requires you to explicitly login by
-passing an authorized username and password and then storing the ``session_token``
-the API returns to you. All of your calls after this must include the ``session_token``
+This method utilized by our own portal. (Yes, we use the API that you use.)
+This method requires you to explicitly login by passing an authorized username
+and password and then storing the ``session_token`` the API returns to you.
+All of your calls after this must include the ``session_token``
 
 **Note**: We only allow one authenticated session at a time. If you use this method,
 the PacketFabric portal will require you to login again.

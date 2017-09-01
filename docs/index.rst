@@ -27,7 +27,7 @@ end points. For the time being, these examples will be in Python.
 .. _examples-docs:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: API Examples
 
    examples/login
