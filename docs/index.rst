@@ -32,3 +32,13 @@ end points. For the time being, these examples will be in Python.
 
    examples/login
    examples/orderport
+   examples/orderbackbonevirtualcircuit
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Examples
+
+   bugs
+
+
+.. include:: bugs.rst

@@ -6,6 +6,8 @@ Ordering a Port
 Ordering a port is a series of API calls. This is to gather all the required
 information needed to make the completed order.
 
+.. _example-orderport-billingid
+
 Find our billing_id
 -------------------
 
@@ -30,6 +32,8 @@ example, there is only a single result::
 
     [{u'Id': u'70208', u'Name': u"Playground"}]
 
+
+.. _example-orderport-popid
 
 Getting pop_id
 --------------
@@ -72,6 +76,8 @@ used to determine where the port will be located.
 In this example, you want to save the value of ``r.json()[0]['pop_id']`` before we
 move to the next step in ordering a port.
 
+.. _example-orderport-availports
+
 Getting available ports
 -----------------------
 
@@ -102,6 +108,8 @@ to complete the order.
 
 We're going to select a ``10Gbps:LR`` port in Zone ``A``. You can split out speed
 and media type by using ``.split(":")``
+
+.. _example-orderport-productids
 
 Finding product_ids
 -------------------
@@ -173,6 +181,8 @@ similar to this::
 The only information needed for ordering a port is the ``Id``. The other information
 may be useful to you, though.
 
+.. _example-orderport-orderport
+
 Order the port
 --------------
 
@@ -230,7 +240,6 @@ the ``data`` parameter. This is because we are sending an object that has multip
 We receive a payload back, as well. The payload contains information about the
 ``service_order`` and the ``task`` this order generated.
 
-
 ::
 
     {u'service_order': {u'customer_id': 435,
@@ -274,6 +283,8 @@ The ``['task']['task_id']`` can be used to check the status of this order. It ta
 The ``['task']['task_request_data']['ifd_id']`` will be used to activate this port. When
 initially created, the port is in a ``Testing Mode`` state. It needs to be activated.
 
+.. _example-orderport-orderstatus
+
 Check the status of task
 ------------------------
 
@@ -315,6 +326,8 @@ ready, you have to check the status of your task::
 The important bit here is ``['task_status']``. When it is ``success``, provisioning is
 complete and you can activate your port.
 
+.. _example-orderport-activateport
+
 Activating the port
 -------------------
 
@@ -336,6 +349,7 @@ information that the API call to get information about a
 `specific interface <https://docs.packetfabric.com/#api-Interface-GetInterfacePhysical>`__
 contains.
 
+.. _example-orderport-conclusion
 
 Finishing up
 ------------
