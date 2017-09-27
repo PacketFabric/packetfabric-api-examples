@@ -5,8 +5,8 @@ Authentication Methods
 
 Authenticating via the API can be accomplished in two different ways::
 
--  Using a Session Token & Cookie
--  Using an API Key & Hash
+*  Using a Session Token & Cookie
+*  Using an API Key & Hash
 
 .. _session-token-cookie:
 
