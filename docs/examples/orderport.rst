@@ -3,8 +3,8 @@
 Ordering a Port
 ===============
 
-Ordering a port is a series of API calls. This is to gather all the required
-information needed to make the completed order.
+Ordering a port is a series of API calls. These calls are to gather all the required
+information needed to make the completed order, then finally placing the order.
 
 .. _example-orderport-billingid
 
@@ -57,7 +57,6 @@ used to determine where the port will be located.
       u'pop_latitude': u'31.566523',
       u'pop_longitude': u'-97.102661',
       u'pop_name': u'LAB1',
-
       u'sites': [{u'pcode': 3725900,
                   u'site_address1': u'1649 W Frankford Rd',
                   u'site_address2': u'',
@@ -82,7 +81,7 @@ Getting available ports
 -----------------------
 
 Using the ``pop_id`` from above, we can now figure out which ports are available
-are our destination::
+at our destination::
 
     pop_id = 1
     endpoint = '{}/interfaces/physical/availability'.format(api_url)
@@ -96,7 +95,6 @@ The results of this call will look similar to this::
     {u'interfaces': {u'10Gbps:LR': 22, u'40Gbps:LR4': 6},
      u'media': {u'LR': 22, u'LR4': 6},
      u'speed': {u'10Gbps': 22, u'40Gbps': 6},
-
      u'zones': {u'A': {u'10Gbps:LR': 10, u'40Gbps:LR4': 3},
                 u'B': {u'10Gbps:LR': 2, u'40Gbps:LR4': 3}}
     }

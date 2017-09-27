@@ -5,17 +5,17 @@ Authentication Methods
 
 Authenticating via the API can be accomplished in two different ways::
 
- -  Using a Session Token & Cookie
- -  Using an API Key & Hash
+-  Using a Session Token & Cookie
+-  Using an API Key & Hash
 
 .. _session-token-cookie:
 
 Session Token & Cookie
 ----------------------
 
-This method utilized by our own portal. (Yes, we use the API that you use.)
+This method is utilized by our own portal. (Yes, we use the API that you use.)
 This method requires you to explicitly login by passing an authorized username
-and password and then storing the ``session_token`` the API returns to you.
+and password and then store the ``session_token`` the API returns to you.
 All of your calls after this must include the ``session_token``
 
 **Note**: We only allow one authenticated session at a time. If you use this method,
@@ -46,7 +46,7 @@ API Key & Hash
 --------------
 
 This method requires that you have generated an API key with appropriate permissions
-prior to use. The API Secret is utilized on each call to create a hash value of
+prior to use. The API secret is utilized on each call to create a hash value of
 the query string.
 
 **Note**: Using the API Key and hash will not log you out of the portal if you
@@ -61,4 +61,4 @@ end point, would then look like this::
 Your results would be available in ``r.json()``
 
 If you are curious about the function called in the previous example, see
-the Helpful Functions section.
+the :ref:`Helpful Functions section <functions-buildquerystring>`.

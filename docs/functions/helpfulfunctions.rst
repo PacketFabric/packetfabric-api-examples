@@ -4,7 +4,7 @@ Functions
 =========
 
 There are several tasks that are done repeatedly when interacting with the API.
-These include generating that ``auth_hash`` and building a query string from a
+These include generating the ``auth_hash`` and building a query string from a
 dictionary object.
 
 .. _functions-buildhash
