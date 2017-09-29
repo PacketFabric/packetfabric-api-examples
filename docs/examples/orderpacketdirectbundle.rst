@@ -223,15 +223,11 @@ You are able to see the bundle progress through these steps by
 :ref:`watching the bundle information <example-pd-bundleinfo>` and the ``state``
 value as it builds. Below is the list of statuses the bundle will go through.
 
-- ``Requested``: This is the first status a brand new bundle will be in. This
-status indicates that a new order is ready for set up
-- ``IFDsCreated``: Ports are set up in both the source and destination
-facilities
+- ``Requested``: This is the first status a brand new bundle will be in. This status indicates that a new order is ready for set up
+- ``IFDsCreated``: Ports are set up in both the source and destination facilities
 - ``VCCreated``: A virtual circuit is set up between the two new ports
-- ``BillingAdded``: Billing information as been associated with the new ports
-and new virtual circuit
-- ``Testing``: Everything is set up and ready for the customer's final
-authorization of provisioning
+- ``BillingAdded``: Billing information as been associated with the new ports and new virtual circuit
+- ``Testing``: Everything is set up and ready for the customer's final authorization of provisioning
 - ``BillingEnabled``: The customer is now being billed for this bundle
 - ``Active``: The bundle is set up and ready for use
 
@@ -241,7 +237,5 @@ also visible to you, if you watch the bundle's information as it is removed.
 * ``BillingRemoved``: Billing of this bundle has ended
 * ``IFLsDestroyed``: Logical links have been removed
 * ``VCDestroyed``: The virtual circuit between the two ports is deleted
-* ``IFDsDestroyed``: The two ports have been removed and are no longer associated
-with the customer
-* ``Inactive``: The final status. Everything has been removed and is no longer
-accessible to the customer.
+* ``IFDsDestroyed``: The two ports have been removed and are no longer associated with the customer
+* ``Inactive``: The final status. Everything has been removed and is no longer accessible to the customer.
