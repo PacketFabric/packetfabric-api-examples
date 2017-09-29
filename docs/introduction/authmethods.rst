@@ -3,7 +3,7 @@
 Authentication Methods
 ======================
 
-Authenticating via the API can be accomplished in two different ways::
+Authenticating via the API can be accomplished in two different ways:
 
 *  Using a Session Token & Cookie
 *  Using an API Key & Hash

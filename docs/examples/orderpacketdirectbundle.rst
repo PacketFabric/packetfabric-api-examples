@@ -224,7 +224,7 @@ You are able to see the bundle progress through these steps by
 value as it builds. Below is the list of statuses the bundle will go through.
 
 * ``Requested``: This is the first status a brand new bundle will be in. This
-status indicates that a new order is ready for set up.
+status indicates that a new order is ready for set up
 * ``IFDsCreated``: Ports are set up in both the source and destination
 facilities
 * ``VCCreated``: A virtual circuit is set up between the two new ports
