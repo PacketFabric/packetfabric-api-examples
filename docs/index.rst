@@ -33,6 +33,7 @@ end points. For the time being, these examples will be in Python.
    examples/login
    examples/orderport
    examples/orderbackbonevirtualcircuit
+   examples/orderpacketdirectbundle
 
 .. toctree::
    :maxdepth: 2

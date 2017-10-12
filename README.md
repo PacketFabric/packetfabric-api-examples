@@ -1,5 +1,7 @@
 <p align="center"><img src="logo.png?raw=true" alt="PacketFabric logo" height="25%" width="25%"></p>
 
+Full API documentation is available on the [PacketFabric site](https://docs.packetfabric.com/)
+
 Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/).
 
 ## Quick Start
@@ -69,4 +71,4 @@ $url = "https://api.packetfabric.com/interfaces/physical?$query_string&auth_hash
 
 ---
 
-Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/). 
+Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/).
