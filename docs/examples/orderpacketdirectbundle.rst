@@ -174,12 +174,20 @@ this process by check the bundle's current state.
 ::
 
     pd_id = 77
-    endpoint = '{}/bundles/packet-direct/{}'.format(api_url, pd_id)
+    endpoint = '{}/bundles/packet-direct/{}/status'.format(api_url, pd_id)
     r = requests.get(gbl.generate_full_endpoint(endpoint, valid_secrets))
 
 The status of a bundle is in ``r.json()['state']``. A list of possible statues
 is available in the :ref:`Bundles Statuses <example-pd-bundlestatus>` section
 of this page.
+
+The end point for `PacketDirect status <https://docs.packetfabric.com/#api-PacketDirect-GetPacketDirectStatus>`__
+provides several useful pieces of information.
+
+It provides the current step and total number of steps to take as well as an estimated
+time to completion in the ``r.json()['progress']``. You can also see if there have
+been any errors in provisioning in ``r.json()['has_error']``. If this is ``True``,
+then you can see exactly what errors have occurred in ``r.json()['current_errors']``.
 
 .. _example-pd-bundleprovision
 
