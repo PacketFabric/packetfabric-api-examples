@@ -48,60 +48,24 @@ example, there is only a single result::
 
 .. _example-ordervirtualcircuit-productids
 
-Finding product_ids
--------------------
+Determining which billing_product_type to use
+---------------------------------------------
 
-The product you select is based on a couple factors, such as the subscription term
-and speed of the port.
+A virtual circuit can be one of three types: ``longhaul_dedicated``,
+``longhaul_usage`` or ``virtual_circuit_metro``. A ``longhaul_dedicated``
+circuit is charged based on a monthly basis regardless of how much it is used. A
+``longhaul_usage`` circuit is charged based on how much data is transferred per
+month at a flatrate. A ``virtual_circuit_metro`` circuit is only viable for two
+ports in the same metro area but different physical locations.
 
-For this example, we are going to create a longhaul dedicated product. Other options
-are shown in the `get products <https://docs.packetfabric.com/#api-Billing-GetBillingProducts>`__
-documentation.
+For this example, we're going to use the ``longhaul_dedicated``.
 
-::
+With this option, we need to supply ``billing_speed`` and ``billing_term``
+parameters as well.
 
-    subscription_term = 12
-    product_type = 'longhaul_dedicated'
-
-    endpoint = '{}/billing/products'.format(api_url)
-    params = {
-        'api_key': api_key,
-        'subscription_term': subscription_term,
-        'product_type': product_type
-        }
-    query_string = generate_query_string(params)
-    r = requests.get("{}?{}&auth_hash={}".format(endpoint, query_string,
-        generate_hash(api_secret, query_string)))
-    product_id = [{'product_type': "longhaul_dedicated",
-        'product_id': r.json()[0]['Id']}]
-
-``r.json()`` is going to contain a list of all products that match this criteria. The
-index shown above will match the product you wish to select. (The ``0`` will change
-to match your selection)
-
-**Important Note**: Not everything in this list is available for your ports. It is
-important that you select a product that matches or is *slower* than the speed of the
-slowest port that will be in this virtual circuit. Exceeding that speed with result
-in an error back from the API saying the product isn't available when you attempt
-to create the virtual circuit.
-
-The results will look similar to this::
-
-    [
-     ...
-     {u'Id': u'13820',
-      u'Name': u'LONGHAUL-DEDICATED-1G-MRC-12M',
-      u'PortSpeed': u'1G',
-      u'ProductType': u'longhaul_dedicated',
-      u'Rate': [u'$425.00'],
-      u'RatingMethodObj': {u'Id': u'38444',
-                           u'RatingMethodPricingType': u'Standard Pricing',
-                           u'RatingMethodType': u'Subscription'},
-      u'subscriptionTerm': u'12'},
-      ...
-    ]
-
-.. _example-ordervirtualcircuit-findvlan
+For this example, we'll select a ``billing_speed`` of ``10Gbps`` and a
+``billing_term`` of ``12``. This will provision a 10Gbps virtual circuit between
+our two ports for a period of 1 year.
 
 Find next available VLAN ID (optional)
 --------------------------------------
@@ -189,8 +153,7 @@ to connect.
 
     billing_id = 70208
     src_ifd_id = 1388
-    src_lowest_vlan = 1
-    product_ids = [{'product_type': "longhaul_dedicated", 'product_id': 13820}]
+    src_lowest_vlan = 4
     description = "Test Virtual Circuit"
 
     endpoint = '{}/virtual-circuits/third-party-connections/evpl'.format(api_url)
@@ -198,7 +161,9 @@ to connect.
     vc_params = {
         "ifd_id": src_ifd_id,
         "description": description,
-        "products": product_ids,
+        "billing_product_type": "longhaul_dedicated",
+        "billing_speed": "10Gbps",
+        "billing_term": 12,
         "billing_account": billing_id,
         "vc_member_crid": crid,
         'market_code': destination_market_code
@@ -300,8 +265,6 @@ can be found using sections above.
     url = "{}&auth_hash={}".format(src_endpoint, query_string,
         generate_hash(api_secret, query_string))
     r = requests.post(url, json=prov_params)
-
-
 
 Finishing up
 ------------

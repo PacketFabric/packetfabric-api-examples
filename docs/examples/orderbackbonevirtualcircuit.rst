@@ -51,58 +51,25 @@ example, there is only a single result::
 
 .. _example-ordervirtualcircuit-productids
 
-Finding product_ids
--------------------
+Determining which billing_product_type to use
+---------------------------------------------
 
-The product you select is based on a couple factors, such as the subscription term
-and speed of the port.
+A virtual circuit can be one of three types: ``longhaul_dedicated``,
+``longhaul_usage`` or ``virtual_circuit_metro``. A ``longhaul_dedicated``
+circuit is charged based on a monthly basis regardless of how much it is used. A
+``longhaul_usage`` circuit is charged based on how much data is transferred per
+month at a flatrate. A ``virtual_circuit_metro`` circuit is only viable for two
+ports in the same metro area but different physical locations.
 
-For this example, we are going to create a longhaul dedicated product. Other options
-are shown in the `get products <https://docs.packetfabric.com/#api-Billing-GetBillingProducts>`__
-documentation.
+For this example, we're going to use the ``longhaul_dedicated``.
 
-::
+With this option, we need to supply ``billing_speed`` and ``billing_term``
+parameters as well.
 
-    subscription_term = 12
-    product_type = 'longhaul_dedicated'
+For this example, we'll select a ``billing_speed`` of ``10Gbps`` and a
+``billing_term`` of ``12``. This will provision a 10Gbps virtual circuit between
+our two ports for a period of 1 year.
 
-    endpoint = '{}/billing/products'.format(api_url)
-    params = {
-        'api_key': api_key,
-        'subscription_term': subscription_term,
-        'product_type': product_type
-        }
-    query_string = generate_query_string(params)
-    r = requests.get("{}?{}&auth_hash={}".format(endpoint, query_string,
-        generate_hash(api_secret, query_string)))
-    product_id = [{'product_type': "longhaul_dedicated",
-        'product_id': r.json()[0]['Id']}]
-
-``r.json()`` is going to contain a list of all products that match this criteria. The
-index shown above will match the product you wish to select. (The ``0`` will change
-to match your selection)
-
-**Important Note**: Not everything in this list is available for your ports. It is
-important that you select a product that matches or is *slower* than the speed of the
-slowest port that will be in this virtual circuit. Exceeding that speed with result
-in an error back from the API saying the product isn't available when you attempt
-to create the virtual circuit.
-
-The results will look similar to this::
-
-    [
-     ...
-     {u'Id': u'13820',
-      u'Name': u'LONGHAUL-DEDICATED-1G-MRC-12M',
-      u'PortSpeed': u'1G',
-      u'ProductType': u'longhaul_dedicated',
-      u'Rate': [u'$425.00'],
-      u'RatingMethodObj': {u'Id': u'38444',
-                           u'RatingMethodPricingType': u'Standard Pricing',
-                           u'RatingMethodType': u'Subscription'},
-      u'subscriptionTerm': u'12'},
-      ...
-    ]
 
 .. _example-ordervirtualcircuit-findvlan
 
@@ -163,9 +130,8 @@ below.
     billing_id = 70208
     src_ifd_id = 1388
     dest_ifd_id = 1389
-    src_lowest_vlan = 1
-    dest_lowest_vlan = 1
-    product_ids = [{'product_type': "longhaul_dedicated", 'product_id': 13820}]
+    src_lowest_vlan = 4
+    dest_lowest_vlan = 4
     description = "Test Virtual Circuit"
 
     endpoint = '{}/virtual-circuits/backbone-connections/evpl'.format(api_url)
@@ -174,7 +140,9 @@ below.
         "ifd_id_src": src_ifd_id,
         "ifd_id_dest": dest_ifd_id,
         "description": description,
-        "products": product_ids,
+        "billing_product_type": "longhaul_dedicated",
+        "billing_speed": "10Gbps",
+        "billing_term": 12,
         "billing_account": billing_id
     }
     params = {
@@ -199,82 +167,51 @@ looks like this::
         "ifd_id_src": 1388,
         "ifd_id_dest": 1389,
         "description": "Test Virtual Circuit",
-        "products": [{'product_type': "longhaul_dedicated", 'product_id': 13820}],
+        "billing_product_type": "longhaul_dedicated",
+        "billing_speed": "10Gbps",
+        "billing_term": 12,
         "billing_account": 70208,
-        "vlan_id_src": 1,
+        "vlan_id_src": 4,
         "untagged_dest": "true"
     }
 
 We receive a payload back, as well. The payload contains information about the
-``service_order`` and the ``tasks`` this order generated.
+virtual circuit provisioned.
 
 ::
 
-    {u'service_order': {u'customer_id': 435,
-                    u'document_attr': {u'vc_circuit_id': u'PF-BC-DA1-DA2-3604'},
-                    u'document_data': None,
-                    u'document_description': u"Andy's Test Playground service order PF-87749201709010305",
-                    u'document_id': 1470,
-                    u'document_mime_type': u'application/pdf',
-                    u'document_name': u'service-order-PF-87749201709010305.pdf',
-                    u'document_size': 37911,
-                    u'document_type': u'service_order',
-                    u'temp_file_path': None,
-                    u'time_created': u'2017-08-31T22:05:13-05:00',
-                    u'time_updated': u'2017-08-31T22:05:13-05:00',
-                    u'user_id': 439},
-    u'tasks': [{u'customer_id': 435,
-             u'task_action': u'logical_interface_create_evpl',
-             u'task_description': u"Create virtual circuit for Andy's Test Playground",
-             u'task_id': u'4844',
-             u'task_request_data': {u'customer_id': 435,
-                                    u'customer_name': u"Andy's Test Playground",
-                                    u'device_id': 3,
-                                    u'iface_name': u'xe-0/0/2:2',
-                                    u'ifd_id': 1388,
-                                    u'ifd_speed': u'10G',
-                                    u'ifl_id': 1241,
-                                    u'ifl_mac_blacklist': None,
-                                    u'ifl_mac_whitelist': None,
-                                    u'ifl_rate_limit_in': 0,
-                                    u'ifl_rate_limit_out': 0,
-                                    u'ifl_vlan_id': 1,
-                                    u'pop_id': 1,
-                                    u'request_id': 1506051,
-                                    u'vc_circuit_id': u'PF-BC-DA1-DA2-3604',
-                                    u'vc_id': 1815},
-             u'task_response_data': None,
-             u'task_status': u'active',
-             u'time_created': u'2017-08-31T22:05:12-05:00',
-             u'time_updated': u'2017-08-31T22:05:12-05:00'},
-             {u'customer_id': 435,
-              u'task_action': u'logical_interface_create_evpl',
-              u'task_description': u"Create virtual circuit for Andy's Test Playground",
-              u'task_id': u'4845',
-              u'task_request_data': {u'customer_id': 435,
-                                     u'customer_name': u"Andy's Test Playground",
-                                     u'device_id': 2,
-                                     u'iface_name': u'xe-0/0/1:0',
-                                     u'ifd_id': 1389,
-                                     u'ifd_speed': u'10G',
-                                     u'ifl_id': 1242,
-                                     u'ifl_mac_blacklist': None,
-                                     u'ifl_mac_whitelist': None,
-                                     u'ifl_rate_limit_in': 0,
-                                     u'ifl_rate_limit_out': 0,
-                                     u'ifl_vlan_id': 0,
-                                     u'pop_id': 2,
-                                     u'request_id': 1506051,
-                                     u'vc_circuit_id': u'PF-BC-DA1-DA2-3604',
-                                     u'vc_id': 1815},
-              u'task_response_data': None,
-              u'task_status': u'active',
-              u'time_created': u'2017-08-31T22:05:12-05:00',
-              u'time_updated': u'2017-08-31T22:05:12-05:00'}]}
-
-
-Each of the ``['tasks']['task_id']`` keys can be used to check the status of this
-order. Provisioning of a virtual circuit should only take a few seconds.
+    {
+        'connected': False,
+        'customer_id': 759,
+        'description': 'Test Virtual Circuit',
+        'disabled_interfaces': [],
+        'enabled_interfaces': [],
+        'members': [],
+        'object_id': 161900,
+        'product_id': 1,
+        'product_name': 'Backbone Connection',
+        'state': 'Requested',
+        'time_created': '2018-09-11T07:47:43-05:00',
+        'time_updated': '2018-09-11T07:47:43-05:00',
+        'user_id': 821,
+        'vc_attr': {'billing': {'account_id': 70907,
+                             'product_type': 'longhaul_dedicated',
+                             'speed': '10Gbps',
+                             'subscription_term': 12},
+                 'settings': {'ifd_id_dest': 1389,
+                              'ifd_id_src': 1388,
+                              'no_service_order': False,
+                              'untagged_dest': False,
+                              'untagged_src': False,
+                              'vlan_id_dest': 4,
+                              'vlan_id_src': 4},
+                 'tasks': []},
+        'vc_circuit_id': 'PF-BC-DA1-DA2-161900',
+        'vc_id': 135303,
+        'vc_mode': 'evpl',
+        'vc_multipoint': False,
+        'vc_service_class': 'longhaul'
+    }
 
 No further activation is required for this longhaul connection.
 
