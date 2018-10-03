@@ -26,7 +26,7 @@ a valid username and password, your future calls to the API can be accomplished
 by utilizing the ``session`` variable::
 
     session = requests.Session()
-    login_url = "https://docs.packetfabric.com/login"
+    login_url = "https://api.packetfabric.com/login"
     params = {
         'user_login': 'ValidUserName',
         'user_password': 'ValidPassword'
