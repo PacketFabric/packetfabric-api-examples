@@ -12,7 +12,7 @@ Find our billing_id
 -------------------
 
 A new port needs to be associated with your billing account. This can be accomplished
-by :ref:`finding your ``billing_id`` <functions-billingid>`.
+by :ref:`finding your billing_id <functions-billingid>`.
 
 .. _example-orderport-popid
 
@@ -56,7 +56,7 @@ of 12 months. We've gathered all this information with the snippets above.
     r = requests.post(generate_full_endpoint(api_url, endpoint, valid_secrets), json=params)
 
 One important note, here, is that the final ``.post()`` is sent using the ``json`` parameter, not
-the ``data`` parameter. 
+the ``data`` parameter.
 
 .. _example-orderport-conclusion
 
