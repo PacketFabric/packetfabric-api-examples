@@ -20,7 +20,7 @@ Getting pop_id
 --------------
 
 A new port needs to be located in a specific spot. You can find the associated ``pop_id``
-of where you'd like a port by :ref:`finding your ``pop_id`` <functions-popid>`.
+of where you'd like a port by :ref:`finding your pop_id <functions-popid>`.
 
 .. _example-orderport-orderport
 

@@ -17,15 +17,15 @@ Find our billing_id
 -------------------
 
 A new PacketDirect needs to be associated with your billing account. This can be accomplished
-by :ref:`finding your ``billing_id`` <functions-billingid>`.
+by :ref:`finding your billing_id <functions-billingid>`.
 
 .. _example-pd-popids
 
 Find pop_id for source and destination
 ---------------------------------------
 
-A new PacketDirect goes from a source to a destination.  You can find the associated ``pop_id``s
-of where you'd like your PacketDirect by :ref:`finding your ``pop_id``s <functions-popid>`.
+A new PacketDirect goes from a source to a destination.  You can find the associated ``pop_id``
+of where you'd like your PacketDirect by :ref:`finding your pop_id <functions-popid>`.
 
 Repeating the above code with another location (say ``DA2``), will return another
 ``pop_id``. Now that we have both a source and a destination, we can move forward.

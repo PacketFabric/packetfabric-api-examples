@@ -15,7 +15,7 @@ Find our billing_id
 -------------------
 
 A new AWS PacketCOR needs to be associated with your billing account. This can be accomplished
-by :ref:`finding your ``billing_id`` <functions-billingid>`.
+by :ref:`finding your billing_id <functions-billingid>`.
 
 .. example-pcawsdedicated-region
 

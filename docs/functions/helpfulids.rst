@@ -43,7 +43,7 @@ can be accessed by ``r.json()[0]['Id']`` and will have a value of ``70208``.
 Find pop_id
 -----------
 
-``pop_id``s are used to identify where a product will originate from or terminate at. They
+``pop_id`` variables are used to identify where a product will originate from or terminate at. They
 are identified in documentation as ``pop_id``, ``pop_id_src`` or ``pop_id_dest``, depending
 on if one id is needed or multiple.
 
