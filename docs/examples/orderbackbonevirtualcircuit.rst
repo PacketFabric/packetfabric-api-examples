@@ -1,7 +1,7 @@
 .. _example-ordervirtualcircuit-backbone:
 
 Ordering a Backbone Virtual Circuit
-==========================
+===================================
 
 Much like :ref:`ordering a port <example-orderport>`, ordering a Virtual Circuit
 is a series of API calls to gather all the information needed to complete the
@@ -23,7 +23,7 @@ can be created between selected interfaces. Once an interface is part of an EPL
 circuit, that interface will no longer be available for any other circuit.
 There is no rate limiting or white/blacklisting of MAC addresses using EPL mode.
 
-.. _example-ordervirtualcircuit-billingid
+.. _example-ordervirtualcircuit-billingid:
 
 Find our billing_id
 -------------------
@@ -31,7 +31,7 @@ Find our billing_id
 A new virtual circuit needs to be associated with your billing account. This can be accomplished
 by :ref:`finding your billing_id <functions-billingid>`.
 
-.. _example-ordervirtualcircuit-productids
+.. _example-ordervirtualcircuit-productids:
 
 Determining which billing_product_type to use
 ---------------------------------------------
@@ -53,7 +53,7 @@ For this example, we'll select a ``billing_speed`` of ``10Gbps`` and a
 our two ports for a period of 1 year.
 
 
-.. _example-ordervirtualcircuit-findvlan
+.. _example-ordervirtualcircuit-findvlan:
 
 Find next available VLAN ID (optional)
 --------------------------------------
@@ -91,7 +91,7 @@ you will need to determine which port you want to use.
     dest_vlan = r_dest.json()['lowest_available_vlan']
 
 
-.. _example-ordervirtualcircuit-createvc
+.. _example-ordervirtualcircuit-createvc:
 
 Create Virtual Circuit
 ----------------------
@@ -104,7 +104,7 @@ If you are using VLANs for the source, destination or both you will need to add
 ``vlan_id_src`` and/or ``vlan_id_dest`` keys to the ``vc_params`` dictionary below.
 
 If you are using an untagged (non-VLAN) source, destination or both you will need
-to add ``untagged_src`` and/or ``untagged_dest`` keys to the ``vc_params` dictionary
+to add ``untagged_src`` and/or ``untagged_dest`` keys to the ``vc_params`` dictionary
 below.
 
 ::

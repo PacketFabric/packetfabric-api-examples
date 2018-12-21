@@ -13,7 +13,7 @@ stored in the variable ``valid_secrets`` as a tuple (which is how the helpful fu
 
     valid_secrets = (KEY_ID, KEY_SECRET)
 
-.. _functions-get-noparams
+.. _functions-get-noparams:
 
 Get Information without parameters
 ----------------------------------
@@ -29,7 +29,7 @@ when finding your ``billing_id`` <functions-billingid>`.
 
 This will return a list of dictionaries that you will need to iterate through.
 
-.. _functions-get-withparams
+.. _functions-get-withparams:
 
 Get Information with parameters
 -------------------------------
@@ -51,7 +51,7 @@ to pass parameters to the API.
 This will return, in ``r.json()``, a list of dictionaries for all pops in the ``DA1`` market.
 
 
-.. _functions-post-params
+.. _functions-post-params:
 
 Create an item with parameters
 ------------------------------

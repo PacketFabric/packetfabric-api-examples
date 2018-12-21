@@ -6,7 +6,7 @@ Ordering a Port
 Ordering a port is a series of API calls. These calls are to gather all the required
 information needed to make the completed order, then finally placing the order.
 
-.. _example-orderport-billingid
+.. _example-orderport-billingid:
 
 Find our billing_id
 -------------------
@@ -14,7 +14,7 @@ Find our billing_id
 A new port needs to be associated with your billing account. This can be accomplished
 by :ref:`finding your billing_id <functions-billingid>`.
 
-.. _example-orderport-popid
+.. _example-orderport-popid:
 
 Getting pop_id
 --------------
@@ -22,7 +22,7 @@ Getting pop_id
 A new port needs to be located in a specific spot. You can find the associated ``pop_id``
 of where you'd like a port by :ref:`finding your pop_id <functions-popid>`.
 
-.. _example-orderport-orderport
+.. _example-orderport-orderport:
 
 Order the port
 --------------
@@ -58,7 +58,7 @@ of 12 months. We've gathered all this information with the snippets above.
 One important note, here, is that the final ``.post()`` is sent using the ``json`` parameter, not
 the ``data`` parameter.
 
-.. _example-orderport-conclusion
+.. _example-orderport-conclusion:
 
 Finishing up
 ------------

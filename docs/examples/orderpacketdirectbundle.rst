@@ -1,7 +1,7 @@
 .. _example-orderbundle-packetdirect:
 
 Ordering a PacketDirect Bundle
-==========================
+==============================
 
 Instead of ordering individual ports, virtual circuits and configuring those
 to be connected to one another, a bundle can be ordered that handles the
@@ -11,7 +11,7 @@ two ports.
 
 The example below will walk you through ordering a PacketDirect bundle.
 
-.. _example-pd-billingid
+.. _example-pd-billingid:
 
 Find our billing_id
 -------------------
@@ -19,7 +19,7 @@ Find our billing_id
 A new PacketDirect needs to be associated with your billing account. This can be accomplished
 by :ref:`finding your billing_id <functions-billingid>`.
 
-.. _example-pd-popids
+.. _example-pd-popids:
 
 Find pop_id for source and destination
 ---------------------------------------
@@ -30,7 +30,7 @@ of where you'd like your PacketDirect by :ref:`finding your pop_id <functions-po
 Repeating the above code with another location (say ``DA2``), will return another
 ``pop_id``. Now that we have both a source and a destination, we can move forward.
 
-.. _example-pd-mediatypes
+.. _example-pd-mediatypes:
 
 Find available speeds and media types
 -------------------------------------
@@ -68,7 +68,7 @@ and media type by using ``.split(":")``
 Run the same block of code for ``pop_id`` of ``2`` to ensure there is a ``10Gbps``
 port available. If there is, we can move ahead.
 
-.. _example-pd-order
+.. _example-pd-order:
 
 Order the PacketDirect bundle
 -----------------------------
@@ -106,7 +106,7 @@ of the bundle's progress using the next session.
 First, though, we need to get the ``pd_id`` from ``r.json()['pd_id']``. The id
 is used to accept and provision the bundle, as well as check the status.
 
-.. _example-pd-bundleinfo
+.. _example-pd-bundleinfo:
 
 Get bundle information
 ----------------------
@@ -132,7 +132,7 @@ time to completion in the ``r.json()['progress']``. You can also see if there ha
 been any errors in provisioning in ``r.json()['has_error']``. If this is ``True``,
 then you can see exactly what errors have occurred in ``r.json()['current_errors']``.
 
-.. _example-pd-bundleprovision
+.. _example-pd-bundleprovision:
 
 Provision bundle
 ----------------
@@ -155,7 +155,7 @@ statuses should go quickly. It will end in ``Active`` status. You can check the
 progress at any point by :ref:`checking the bundle information <example-pd-bundleinfo>`
 
 
-.. _example-pd-bundleconclusion
+.. _example-pd-bundleconclusion:
 
 Finishing up
 ------------
@@ -164,7 +164,7 @@ Congratulations! You've now ordered and activated a bundle. You have a port in
 your source, a port in your destination and a virtual circuit between the two.
 This entire process should take a little over 2 minutes.
 
-.. _example-pd-bundlestatus
+.. _example-pd-bundlestatus:
 
 Bundles Statuses
 ----------------

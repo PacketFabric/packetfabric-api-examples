@@ -1,7 +1,7 @@
 .. _example-orderbundle-packetcordedicated-aws:
 
 Ordering a Dedicated PacketCOR (AWS)
-==========================
+====================================
 
 A dedicated, exclusive connection to Amazon's public cloud resources can
 be provisioned with the Dedicated PacketCOR product. In the near future, these
@@ -9,7 +9,7 @@ connection types will be available to other cloud providers too.
 
 The example below will walk you through ordering a dedicated PacketCOR.
 
-.. _example-pcawsdedicated-billingid
+.. _example-pcawsdedicated-billingid:
 
 Find our billing_id
 -------------------
@@ -17,7 +17,7 @@ Find our billing_id
 A new AWS PacketCOR needs to be associated with your billing account. This can be accomplished
 by :ref:`finding your billing_id <functions-billingid>`.
 
-.. example-pcawsdedicated-region
+.. example-pcawsdedicated-region:
 
 Find Available AWS regions
 --------------------------
@@ -74,7 +74,7 @@ The available speeds are ``1Gbps`` or ``10Gbps``.
 Provisioning will take a few minutes.
 
 
-.. _example-pcawsdedicated-conclusion
+.. _example-pcawsdedicated-conclusion:
 
 Finishing up
 ------------

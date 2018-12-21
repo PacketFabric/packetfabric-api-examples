@@ -16,7 +16,7 @@ via::
 
 Everything in these examples should work for Python 2.7 and 3.4 or higher.
 
-.. _requirement-apikey
+.. _requirement-apikey:
 
 API Keys
 --------

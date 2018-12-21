@@ -1,7 +1,7 @@
 .. _example-ordervirtualcircuit-3rdparty:
 
 Ordering a 3rd Party Virtual Circuit
-==========================
+====================================
 
 Much like :ref:`ordering a port <example-orderport>`, ordering a Virtual Circuit
 is a series of API calls to gather all the information needed to complete the
@@ -20,7 +20,7 @@ can be created between selected interfaces. Once an interface is part of an EPL
 circuit, that interface will no longer be available for any other circuit.
 There is no rate limiting or white/blacklisting of MAC addresses using EPL mode.
 
-.. _example-ordervirtualcircuit-billingid
+.. _example-ordervirtualcircuit-billingid:
 
 Find our billing_id
 -------------------
@@ -28,7 +28,7 @@ Find our billing_id
 A new virtual circuit needs to be associated with your billing account. This can be accomplished
 by :ref:`finding your billing_id <functions-billingid>`.
 
-.. _example-ordervirtualcircuit-productids
+.. _example-ordervirtualcircuit-productids:
 
 Determining which billing_product_type to use
 ---------------------------------------------
@@ -80,7 +80,7 @@ you will need to determine which port you want to use.
     src_vlan = r_src.json()['lowest_available_vlan']
 
 
-.. _example-ordervirtualcircuit-createvc
+.. _example-ordervirtualcircuit-createvc:
 
 Find 3rd party to connect to
 ----------------------------
@@ -123,7 +123,7 @@ If you are using VLANs for the source, destination or both you will need to add
 ``vlan_id_src`` and/or ``vlan_id_dest`` keys to the ``vc_params`` dictionary below.
 
 If you are using an untagged (non-VLAN) source, destination or both you will need
-to add ``untagged_src`` and/or ``untagged_dest`` keys to the ``vc_params` dictionary
+to add ``untagged_src`` and/or ``untagged_dest`` keys to the ``vc_params`` dictionary
 below.
 
 The last thing you need before we create a Virtual Circuit is the destination

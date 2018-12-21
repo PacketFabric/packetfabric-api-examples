@@ -7,7 +7,7 @@ There are several tasks that are done repeatedly when interacting with the API.
 These include generating the ``auth_hash``, building a query string from a
 dictionary object and generating the full URL endpoint.
 
-.. _functions-buildhash
+.. _functions-buildhash:
 
 Building a hash
 ---------------
@@ -37,7 +37,7 @@ you create your :ref:`API Key <requirement-apikey>`.
         hash = urllib.quote_plus(hash)
         return hash
 
-.. _functions-buildquerystring
+.. _functions-buildquerystring:
 
 Generating Query string
 -----------------------
@@ -67,7 +67,7 @@ a dictionary object into a query string, which can be passed to ``generate_hash(
             q = ''.join("{k}={v}&".format(k=k, v=v) for k, v in query_dict.items() if v)
             return q[:-1]   # Strip trailing "&"
 
-.. _functions-generatefullendpoint
+.. _functions-generatefullendpoint:
 
 Generate Full API Endpoint
 --------------------------
