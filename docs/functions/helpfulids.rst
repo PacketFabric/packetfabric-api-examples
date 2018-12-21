@@ -14,7 +14,7 @@ stored in the variable ``valid_secrets`` as a tuple (which is how the helpful fu
 
     valid_secrets = (KEY_ID, KEY_SECRET)
 
-.. _functions-billingid
+.. _functions-billingid:
 
 Find billing_id
 ---------------
@@ -38,7 +38,7 @@ can be accessed by ``r.json()[0]['Id']`` and will have a value of ``70208``.
 
     [{u'Id': u'70208', u'Name': u"Playground"}]
 
-.. _functions-popid
+.. _functions-popid:
 
 Find pop_id
 -----------
