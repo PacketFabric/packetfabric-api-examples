@@ -14,26 +14,8 @@ The example below will walk you through ordering a dedicated PacketCOR.
 Find our billing_id
 -------------------
 
-As with other services, we require a ``billing_id`` to order anything. We can
-get this by
-
-::
-
-    api_url = 'https://api.packetfabric.com'
-    api_key = '1-1111111'
-    api_secret = 'ABCDEF012345678'
-
-    endpoint = '{}/billing/accounts'.format(api_url)
-    params = {'api_key': api_key}
-    query_string = generate_query_string(params)
-    r = requests.get("{}?{}&auth_hash={}".format(endpoint, query_string,
-        generate_hash(api_secret, query_string)))
-    billing_id = r.json()[0]['Id']
-
-The result of ``r.json()`` contains a list of possible billing accounts. In this
-example, there is only a single result::
-
-    [{u'Id': u'70208', u'Name': u"Playground"}]
+A new AWS PacketCOR needs to be associated with your billing account. This can be accomplished
+by :ref:`finding your ``billing_id`` <functions-billingid>`.
 
 .. example-pcawsdedicated-region
 

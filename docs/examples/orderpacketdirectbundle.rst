@@ -16,73 +16,16 @@ The example below will walk you through ordering a PacketDirect bundle.
 Find our billing_id
 -------------------
 
-As with other services, we require a ``billing_id`` to order anything. We can
-get this by
-
-::
-
-    api_url = 'https://api.packetfabric.com'
-    api_key = '1-1111111'
-    api_secret = 'ABCDEF012345678'
-
-    endpoint = '{}/billing/accounts'.format(api_url)
-    params = {'api_key': api_key}
-    query_string = generate_query_string(params)
-    r = requests.get("{}?{}&auth_hash={}".format(endpoint, query_string,
-        generate_hash(api_secret, query_string)))
-    billing_id = r.json()[0]['Id']
-
-The result of ``r.json()`` contains a list of possible billing accounts. In this
-example, there is only a single result::
-
-    [{u'Id': u'70208', u'Name': u"Playground"}]
+A new PacketDirect needs to be associated with your billing account. This can be accomplished
+by :ref:`finding your ``billing_id`` <functions-billingid>`.
 
 .. _example-pd-popids
 
 Find pop_id for source and destination
 ---------------------------------------
 
-The first thing you need in this process is to retrieve the ``pop_id`` for
-both our source and destination. This is used to determine where the port will
-be located.
-
-::
-
-    endpoint = '{}/locations'.format(api_url)
-    params = {'market': 'DA1', 'api_key': api_key}
-    query_string = generate_query_string(params)
-    r = requests.get("{}?{}&auth_hash={}".format(endpoint, query_string,
-        generate_hash(api_secret, query_string)))
-
-``r.json()`` will look something like this::
-
-    [{u'market_code': u'DA1',
-      u'market_description': u'Dallas LAB1',
-      u'pop_id': 1,
-      u'pop_latitude': u'31.566523',
-      u'pop_longitude': u'-97.102661',
-      u'pop_name': u'LAB1',
-      u'sites': [{u'pcode': 3725900,
-                  u'site_address1': u'1649 W Frankford Rd',
-                  u'site_address2': u'',
-                  u'site_city': u'Carrollton',
-                  u'site_country': u'US',
-                  u'site_id': 175,
-                  u'site_latitude': u'32.795581',
-                  u'site_longitude': u'-96.783443',
-                  u'site_name': u'PacketFabric LAB1',
-                  u'site_postal': u'75007',
-                  u'site_state': u'TX',
-                  u'site_status': u'Active',
-                  u'vendor_id': 9,
-                  u'vendor_name': u'PacketFabric'}]}]
-
-In this example, you want to save the value of ``r.json()[0]['pop_id']`` before we
-move to the next step in ordering a port.
-
-This example found the ``pop_id`` of a site in the ``DA1`` market. Once I know
-this id, it does not change. Future calls will be able to utilize the same value
-and be in the same location.
+A new PacketDirect goes from a source to a destination.  You can find the associated ``pop_id``s
+of where you'd like your PacketDirect by :ref:`finding your ``pop_id``s <functions-popid>`.
 
 Repeating the above code with another location (say ``DA2``), will return another
 ``pop_id``. Now that we have both a source and a destination, we can move forward.
