@@ -37,7 +37,7 @@ end points. We'll be using Python for these examples.
    examples/orderbackbonevirtualcircuit
    examples/order3rdpartyvirtualcircuit
    examples/orderpacketdirectbundle
-   examples/orderpacketcordedicated
+   examples/packetcordedicated
 
 .. toctree::
    :maxdepth: 2

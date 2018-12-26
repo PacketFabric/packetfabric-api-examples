@@ -1,5 +1,7 @@
 .. _example-orderbundle-packetcordedicated-aws:
 
+OBSOLETE!!!
+
 Ordering a Dedicated PacketCOR (AWS)
 ====================================
 
