@@ -1,7 +1,7 @@
-.. _example-orderbundle-packetcor:
+.. _example-orderbundle-packetcordedicated:
 
-PacketCOR Products
-==================
+Dedicated PacketCOR Products
+============================
 
 PacketCOR is PacketFabric’s array of cloud on-ramp solutions, offering private,
 secure, and cost-effective connectivity to your preferred Cloud Service
@@ -81,25 +81,8 @@ billing account of ``70907`` (which you found earlier when you
 This will take about a minute to provision. When it's done, you'll have an AWS
 PacketCOR Dedicated interface that you can connect virtual circuits to. You will
 want to grab the value of ``r.json()['pc_id']`` from the response. This is your
-PacketCOR ID, and it is needed if you want to check the status of the provisioning
+PacketCOR ID, and it is needed if you want to check the :ref:`status of the provisioning <example-orderbundle-packetcorstatus>`
 process (or perform other actions against this PacketCOR product).
-
-You can check the status of the provisions process by checking it's ``status``
-endpoint
-
-::
-
-    pc_id = 184   # This value was found from the .post() response when creating the PacketCOR
-    endpoint = "https://api.packetfabric.com/packet-cor/{}/status".format(pc_id)
-    r = requests.get(generate_full_endpoint(api_url, endpoint, valid_secrets))
-
-The important key in this response is ``state``. This will tell you the current
-status of the PacketCOR. If it is ``Active``, it is ready for you to start attaching
-virtual circuits.
-
-The ``all_states`` key tells you how many states this product will need to go
-through before it is active. The ``all_state_descriptions`` key provides an
-explanation of all possible states a PacketCOR instance could be in.
 
 
 .. _example-orderbundle-googlededicated:
@@ -151,8 +134,14 @@ a 12 month term. It will be associated with your billing account of ``70907``
 This will take about a minute to provision. When it's done, you'll have an Google
 PacketCOR Dedicated interface that you can connect virtual circuits to. You will
 want to grab the value of ``r.json()['pc_id']`` from the response. This is your
-PacketCOR ID, and it is needed if you want to check the status of the provisioning
+PacketCOR ID, and it is needed if you want to check the :ref:`status of the provisioning <example-orderbundle-packetcorstatus>`
 process (or perform other actions against this PacketCOR product).
+
+
+.. _example-orderbundle-packetcorstatus:
+
+Check the status of your PacketCOR
+----------------------------------
 
 You can check the status of the provisions process by checking it's ``status``
 endpoint
