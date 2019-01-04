@@ -286,7 +286,7 @@ If it says the key is not valid, you will need to get another one from Microsoft
 ::
 
     service_key = "YOURSERVICEKEY"
-    endpoint = 'packet-cor/azure/service-key/{}/validation'.format(service_key)
+    endpoint = 'packet-cor/azure/service-key/validation/{}'.format(service_key)
     r = requests.get(generate_full_endpoint(api_url, endpoint, valid_secrets))
 
 In ``r.json()`` you should find that ``is_valid`` is ``True``.
