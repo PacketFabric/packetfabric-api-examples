@@ -148,7 +148,7 @@ to your cloud provider. You can do this by building a virtual circuit between
 one of your PacketFabric ports (which you can do provision by
 :ref:`creating a port <example-orderport-orderport>`) and the new PacketCOR
 product we just provisioned. Documentation for this is available
-`here <https://docs.packetfabric.com/#api-PacketCOR-PostPacketCORVirtualCircuit>`__
+`here <https://docs.packetfabric.com/api/#api-PacketCOR-PostPacketCORVirtualCircuit>`__
 
 For this we will need a few bits of information. First, you'll need your ``ifd_id``
 for the port you wish to connect to the PacketCOR instance. Next, you'll need your

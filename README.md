@@ -1,6 +1,6 @@
 <p align="center"><img src="logo.png?raw=true" alt="PacketFabric logo" height="25%" width="25%"></p>
 
-Full API documentation is available on the [PacketFabric site](https://docs.packetfabric.com/)
+Full API documentation is available on the [PacketFabric site](https://docs.packetfabric.com/api/)
 
 Full examples and and walkthroughs are available on [Read The Docs](http://packetfabric-rest-api-examples.readthedocs.io/en/latest/).
 
