@@ -148,7 +148,7 @@ to your cloud provider. You can do this by building a virtual circuit between
 one of your PacketFabric ports (which you can do provision by
 :ref:`creating a port <example-orderport-orderport>`) and the new PacketCOR
 product we just provisioned. Documentation for this is available
-`here <https://docs.packetfabric.com/api/#api-PacketCOR-PostPacketCORVirtualCircuit>`__
+`here <https://docs.packetfabric.com/api/#api-Virtual_Circuits-PostVirtualCircuitsBackboneConnectionsEVPL>`__
 
 For this we will need a few bits of information. First, you'll need your ``ifd_id``
 for the port you wish to connect to the PacketCOR instance. Next, you'll need your
@@ -160,16 +160,27 @@ connect to the PacketCOR instance from.
 ::
 
     params = {
+	"ifd_id_src": 94569,
+	"ifd_id_dest": 98718,
+ 	"billing_account": 70972,
+	"billing_product_type":"packetcor_dedicated_vc_longhaul",
+	"billing_speed":"50Mbps",
+	"description":"PacketCor VC",
+	"vlan_id_src":6,
+	"vlan_id_dest":4
+    }
+
+    params = {
         "pc_id": 184,
         "ifd_id_src": 4257,
         "billing_account": 70972,
         "billing_product_type": "packetcor_dedicated_vc_longhaul",
         "vlan_id_src": 42,
-        "vlan_id_dest": "12"
+        "vlan_id_dest": 12
     }
 
-This payload will create a virtual circuit between ``ifd_id`` 4257 and PacketCOR
-instance 184. This will be a longhaul product and the appropriate VLAN IDs are
+This payload will create a virtual circuit between ``ifd_id`` 98718 and PacketCOR
+port 94569. This will be a longhaul product and the appropriate VLAN IDs are
 provided based on my existing infrastructure.
 
 This will take about a minute to provision. You can monitor progress via the
