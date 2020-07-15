@@ -2,7 +2,7 @@ PacketFabric REST API examples
 ==============================
 
 Interaction with PacketFabric services occurs via a REST API. Full documentation
-of the API is available at `https://docs.packetfabric.com/ <https://docs.packetfabric.com/>`__
+of the API is available at `https://docs.packetfabric.com/ <https://docs.packetfabric.com/api/>`__
 
 In this documentation, we'll provide you with some helpful examples of various
 end points. We'll be using Python for these examples.
